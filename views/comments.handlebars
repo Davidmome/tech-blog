@@ -1,0 +1,39 @@
+<div class="container mt-3">
+  <div class="card">
+    <div class="card-header">        
+        {{#if newComment}}
+            Create New Comment
+        {{else}}    
+            Edit Comment
+        {{/if}}
+    </div>
+      <div class="card-body">
+        <form id="formComment"
+            {{#if newComment}}
+                action="/comment/{{postId}}" 
+                method="POST"
+                data-id = "0"
+            {{else}}
+                data-id = "{{id}}"
+            {{/if}}              
+        >
+
+            <div class="mb-3">
+            <label for="inputPassword" class="form-label">Comment</label>
+                <textarea class="form-control" id = "textComment" name = "inputComment" aria-label="With textarea" placeholder="Capture su comentario">{{comment}}</textarea>
+            </div>
+
+            <div class="mt-4">
+                {{#if newComment}}
+                    <button class="form-control btn btn-primary" >Create</button>
+                {{else}} 
+                    <button id="updateBtn" class="form-control btn btn-primary" >Update Comment</button>
+                    <button id="deleteBtn" class="form-control btn btn-danger" >Delete</button>
+                {{/if}}                
+            </div>
+        </form>
+      </div> 
+  </div>
+</div>
+
+<script src="/js/comment.js"></script>

@@ -1,0 +1,23 @@
+<div class="card text-center">
+  <div class="card-header">
+    {{#if (is_equal user_id parameter)}}
+      <a
+        class="btn btn-outline-primary float-right"
+        href="/comment/{{id}}"
+        role="button"
+      >Edit</a>
+    {{/if}}
+  </div>
+  <div class="card-body">
+    <p class="card-text">{{comment}}</p>
+
+  </div>
+  <div class="card-footer text-muted">
+    <cite>
+      Commented by
+      {{user.username}}
+      on
+      {{format_date createdat}}
+    </cite>
+  </div>
+</div>

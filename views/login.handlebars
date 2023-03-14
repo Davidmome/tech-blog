@@ -1,0 +1,47 @@
+<div class="container mt-3">
+  <div class="card">
+    <div class="card-header">        
+        {{#if typeLogin}}
+            Login
+        {{else}}    
+            Sing Up
+        {{/if}}
+    </div>
+      <div class="card-body">
+        <form 
+            {{#if typeLogin}}
+                action="/api/user/login" 
+            {{else}}
+                action="/api/user/singup" 
+            {{/if}}              
+        method="POST">
+            <div class="mb-3">
+            <label for="exampleFormControlInput1" class="form-label">User Name</label>
+            <input class="form-control" name = "inputUser" placeholder="Capture su nombre de usuario">
+            </div>
+
+            <div class="mb-3">
+            <label for="inputPassword" class="form-label">Password</label>
+                <input type="password" class="form-control" name="inputPassword">
+            </div>
+
+            <div class="mt-4">
+            <button class="form-control btn btn-primary" >
+                {{#if typeLogin}}
+                    Login!
+                {{else}} 
+                    Sing Up!
+                {{/if}}                
+                </button>
+            </div>
+        </form>
+      </div> 
+    <div class="card-footer">
+        {{#if typeLogin}}
+            <a href="/api/user/singup" class="link-primary">Sing up instead</a>
+        {{else}}    
+            <a href="/api/user/login" class="link-primary">Login instead</a>
+        {{/if}}
+    </div>
+  </div>
+</div>

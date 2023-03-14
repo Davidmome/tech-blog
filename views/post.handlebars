@@ -1,0 +1,43 @@
+<div class="container mt-3">
+  <div class="card">
+    <div class="card-header">        
+        {{#if newPost}}
+            Create New Post
+        {{else}}    
+            Edit Post
+        {{/if}}
+    </div>
+      <div class="card-body">
+        <form id="formPost"
+            {{#if newPost}}
+                action="/dashboard/post" 
+                method="POST"
+                data-id = "0"
+            {{else}}
+                data-id = "{{id}}"
+            {{/if}}              
+        >
+            <div class="mb-3">
+            <label for="exampleFormControlInput1" class="form-label">Title</label>
+            <input class="form-control" id="textTitle" name = "inputTitle" placeholder="Capture el titulo del post" value = "{{title}}"/>
+            </div>
+
+            <div class="mb-3">
+            <label for="inputPassword" class="form-label">Content</label>
+                <textarea class="form-control" id = "textContent" name = "inputContent" aria-label="With textarea" placeholder="Capture el contenido del post">{{content}}</textarea>
+            </div>
+
+            <div class="mt-4">
+                {{#if newPost}}
+                    <button class="form-control btn btn-primary" >Create</button>
+                {{else}} 
+                    <button id="updateBtn" class="form-control btn btn-primary" >Update Post</button>
+                    <button id="deleteBtn" class="form-control btn btn-danger" >Delete</button>
+                {{/if}}                
+            </div>
+        </form>
+      </div> 
+  </div>
+</div>
+
+<script src="/js/post.js"></script>
